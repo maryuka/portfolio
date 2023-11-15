@@ -2,9 +2,19 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    letter-spacing: .05em;
+}
+
+.v-sheet,
+.v-container {
+    color: #2B2A36;
+}
+
 .title {
     font-size: 1rem;
-    font-family: 'EB Garamond', serif;
 }
 
 .is_jp {
@@ -13,11 +23,4 @@ html {
 
 .is_en {
     font-family: 'EB Garamond', serif;
-}
-
-body {
-    color: #2B2A36;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 16px;
-    letter-spacing: .05em;
 }
