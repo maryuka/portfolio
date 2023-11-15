@@ -52,7 +52,7 @@ section {
     left: 20px;
     width: 32px;
     height: 2px;
-    background: #333333;
+    background: #2B2A36;
     text-align: center;
 }
 

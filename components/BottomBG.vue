@@ -6,7 +6,10 @@
 .bottom-background-image {
     width: 100%;
     height: 300px;
+}
 
+.bottom-background-image :deep(img) {
+    min-width: 80%;
 }
 
 @media screen and (max-width: 1280px) {

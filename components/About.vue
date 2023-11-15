@@ -26,7 +26,7 @@ const items = [
             <h1 class="title is_en">私について</h1>
             <v-row no-gutters class="profile mt-16" justify="center">
                 <v-col class="txt_box" cols="12" lg="4">
-                    <h1 class="title is_en">Profile</h1>
+                    <h1 class="profile_title is_en">Profile</h1>
                     <p class="txt mt-10">
                         大学にて情報学を専攻しており、グループ署名を用いた匿名認証について研究しています。在学中に一般社団法人にてWebエンジニアとして自社のWebサイトを制作しました。他にも動画を作ったり写真を撮ったりゲームを作ったり、面白そうなことに色々手を出しています。いつか海外でWEB制作のお仕事をするために英語も勉強中です。
                     </p>
@@ -38,7 +38,7 @@ const items = [
             </v-row>
             <v-row no-gutters class="profile is_reverse mt-16" justify="center">
                 <v-col class="txt_box" cols="12" lg="4">
-                    <h1 class="title is_en">Likes</h1>
+                    <h1 class="profile_title is_en">Likes</h1>
                     <p class="txt mt-10">
                         自然全般が好きです。<br>
                         〈花〉このサイトのテーマになっているお花はネモフィラです。和名は瑠璃唐草。かわいい。

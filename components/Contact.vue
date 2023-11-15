@@ -47,6 +47,7 @@
     max-width: 720px;
 }
 
+
 @media screen and (max-width: 960px) {
     .form {
         max-width: 500px;
@@ -152,8 +153,12 @@
 
 .form_btn {
     width: 200px;
+    height: 50px;
+    background-color: #a7bcf3;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
 }
-
 
 @media screen and (max-width: 1280px) {
     .contact_box {
