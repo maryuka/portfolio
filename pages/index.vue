@@ -1,5 +1,5 @@
 <template>
-    <!-- <FirstView /> -->
+    <FirstView />
     <Catch />
     <MiddleBG />
     <About />
