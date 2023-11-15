@@ -1,0 +1,23 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.title {
+    font-size: 1rem;
+    font-family: 'EB Garamond', serif;
+}
+
+.is_jp {
+    font-family: 'Noto+Serif+JP';
+}
+
+.is_en {
+    font-family: 'EB Garamond', serif;
+}
+
+body {
+    color: #2B2A36;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    letter-spacing: .05em;
+}

@@ -1,0 +1,4 @@
+<template>
+    <PartsMenuButton />
+    <PartsLang />
+</template>
