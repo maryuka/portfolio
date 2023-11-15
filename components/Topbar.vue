@@ -1,4 +1,4 @@
 <template>
     <PartsMenuButton />
-    <PartsLang />
+    <!-- <PartsLang /> -->
 </template>
