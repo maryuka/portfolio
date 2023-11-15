@@ -26,8 +26,8 @@ const items = [
                         <v-sheet v-if="model != null" height="200" class="px-16">
                             <div v-if="model == 0">
                                 <div>
-                                    <h3>ポートフォリオサイト</h3>
-                                    所属する団体のイベントの中で使用するマルチプレイゲームの制作を行いました。<br><br>
+                                    <h3>〈ポートフォリオサイト〉</h3>
+                                    初めてVue,Nuxtを使って制作したサイトです。制作期間は約2週間です。<br><br>
 
                                     使用言語：Vue3<br>
                                     フレームワーク：Nuxt3<br>
@@ -36,7 +36,7 @@ const items = [
                                     デザイン：Figma<br>
                                 </div>
                             </div>
-                            <div v-else="model == 1">
+                            <div v-else-if="model == 1">
                                 <div>
                                     <h3>〈Youtubeチャンネル登録者通知X(Twitter)Bot〉</h3>
                                     YouTubeのチャンネル登録者数を監視し、登録者数の増減があればTwitterでお知らせするBotです。<br><br>
@@ -44,10 +44,10 @@ const items = [
                                     使用言語：Python<br>
                                     API：YouTube API v3、Twitter API v2<br>
                                     PaaS：Heroku<br>
-                                    DB管理：MySQL
+                                    データベース管理：MySQL
                                 </div>
                             </div>
-                            <div v-else="model == 2">
+                            <div v-else-if="model == 2">
                                 <div>
                                     <h3>〈少人数マルチプレイゲーム〉</h3>
                                     所属する団体のイベントの中で使用するマルチプレイゲームの制作を行いました。<br><br>
