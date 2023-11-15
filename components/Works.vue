@@ -2,8 +2,10 @@
 import { ref } from 'vue'
 const model = ref(null)
 const items = [
-    { src: "/img/worksbot.png" },
-    { src: "/img/worksgame.png" },]
+    { src: "/img/worksPortfolio.webp" },
+    { src: "/img/worksbot.webp" },
+    { src: "/img/worksgame.webp" },
+]
 </script>
 
 <template>
@@ -24,6 +26,18 @@ const items = [
                         <v-sheet v-if="model != null" height="200" class="px-16">
                             <div v-if="model == 0">
                                 <div>
+                                    <h3>ポートフォリオサイト</h3>
+                                    所属する団体のイベントの中で使用するマルチプレイゲームの制作を行いました。<br><br>
+
+                                    使用言語：Vue3<br>
+                                    フレームワーク：Nuxt3<br>
+                                    UIライブラリ：Vuetify<br>
+                                    ホスティング：CloudflarePages<br>
+                                    デザイン：Figma<br>
+                                </div>
+                            </div>
+                            <div v-else="model == 1">
+                                <div>
                                     <h3>〈Youtubeチャンネル登録者通知X(Twitter)Bot〉</h3>
                                     YouTubeのチャンネル登録者数を監視し、登録者数の増減があればTwitterでお知らせするBotです。<br><br>
 
@@ -33,7 +47,7 @@ const items = [
                                     DB管理：MySQL
                                 </div>
                             </div>
-                            <div v-else="model == 1">
+                            <div v-else="model == 2">
                                 <div>
                                     <h3>〈少人数マルチプレイゲーム〉</h3>
                                     所属する団体のイベントの中で使用するマルチプレイゲームの制作を行いました。<br><br>
