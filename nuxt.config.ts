@@ -1,7 +1,7 @@
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/google-fonts', "@nuxt/image"],
+  modules: ['@nuxtjs/google-fonts', "@nuxt/image", '@vueuse/motion/nuxt'],
   googleFonts: {
     families: {
       families: {
