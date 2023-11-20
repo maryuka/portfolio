@@ -1,8 +1,13 @@
+<script setup lang="ts">
+
+const title_txt = "お問い合わせ"
+
+</script>
 
 <template>
     <v-sheet class="contact_sheet" id="Contact">
         <v-container class="contact_box py-16 my-16">
-            <h1 class="title is_en">お問い合わせ</h1>
+            <PartsTitle :title="title_txt" />
             <v-sheet class="mx-auto pt-16 form">
                 <form action="https://portfolio-806585.form.newt.so/v1/Cscg-Svnh" method="post">
                     <div class="form_item">

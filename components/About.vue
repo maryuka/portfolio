@@ -18,12 +18,14 @@ const items = [
     },
 ]
 
+const title_txt = "私について"
+
 </script>
 
 <template>
     <v-sheet class="sheet" id="About">
         <v-container class="box py-16 my-16">
-            <h1 class="title is_en">私について</h1>
+            <PartsTitle :title="title_txt" />
             <v-row no-gutters class="profile mt-16" justify="center">
                 <v-col class="txt_box" cols="12" lg="4">
                     <h1 class="profile_title is_en">Profile</h1>

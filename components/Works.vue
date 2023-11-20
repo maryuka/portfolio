@@ -6,12 +6,13 @@ const items = [
     { src: "/img/worksbot.webp" },
     { src: "/img/worksgame.webp" },
 ]
+const title_txt = "実績"
 </script>
 
 <template>
     <v-sheet class="works_sheet" id="Works">
         <v-container class="works_box pb-16 mb-16">
-            <h1 class="title is_en">実績</h1>
+            <PartsTitle :title="title_txt" />
             <v-sheet class="mx-auto pt-16">
                 <v-sheet class="works_pc">
                     <v-slide-group v-model="model" class="pa-4" selected-class="bg-primary" center-active show-arrows>
