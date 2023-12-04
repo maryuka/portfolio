@@ -18,7 +18,7 @@ const props = defineProps<{
     </h1>
 </template>
 
-<style>
+<style scoped>
 .title {
     display: flex;
 }
