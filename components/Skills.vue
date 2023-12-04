@@ -3,10 +3,11 @@ import { ref } from 'vue'
 const sleep = async (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 const title_txt = "できること";
-const readMore = ref({ Activated: true });
+const readMore = ref({ Activated: false, Inactivated: true });
 
-const readMoreActivatedFunc = async () => {
-    await sleep(500);
+const readMoreInactivatedFunc = async () => {
+    readMore.value.Inactivated = !readMore.value.Inactivated;
+    await sleep(400);
     readMore.value.Activated = !readMore.value.Activated;
 }
 
@@ -15,13 +16,19 @@ const readMoreActivatedFunc = async () => {
 <template>
     <v-sheet class="sheet" id="Skills">
         <v-container class="box py-16 my-16">
+            <div v-motion :initial="{ opacity: 0, y: 20, }" :visibleOnce="{
+                opacity: 1, y: 0, transition: {
+                    duration: 1000, type: 'keyframes',
+                    ease: 'easeOut', delay: 400,
+                },
+            }">
             <PartsTitle :title="title_txt" />
             <v-container class="px-0">
                 <v-row justify="center">
-                    <v-col cols="auto">
+                    <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title>
+                                <v-card-title class="title">
                                     Wordpress
                                 </v-card-title>
                                 <v-card-subtitle>
@@ -33,10 +40,10 @@ const readMoreActivatedFunc = async () => {
                             </v-card-text>
                         </v-card>
                     </v-col>
-                    <v-col cols="auto">
+                    <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title>
+                                <v-card-title class="title">
                                     HTML / CSS
                                 </v-card-title>
                                 <v-card-subtitle>
@@ -48,10 +55,10 @@ const readMoreActivatedFunc = async () => {
                             </v-card-text>
                         </v-card>
                     </v-col>
-                    <v-col cols="auto">
+                    <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title>
+                                <v-card-title class="title">
                                     Vue3 / Nuxt3
                                 </v-card-title>
                                 <v-card-subtitle>
@@ -65,15 +72,18 @@ const readMoreActivatedFunc = async () => {
                     </v-col>
                 </v-row>
                 <Transition name="moreButton">
-                    <v-btn class="button" v-if="readMore.Activated" @click="readMoreActivatedFunc">もっと見る</v-btn>
+                    <v-btn class="button" v-if="!readMore.Activated"
+                        @click="readMore.Activated = !readMore.Activated; readMore.Inactivated = !readMore.Inactivated">
+                        もっと見る
+                    </v-btn>
                 </Transition>
-                <Transition name="skillMore">
-                    <div v-if="!readMore.Activated">
+                <Transition name=" skillMore">
+                    <div v-if="!readMore.Inactivated">
                         <v-row justify="center">
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
+                                        <v-card-title class="title">
                                             PHP
                                         </v-card-title>
                                         <v-card-subtitle>
@@ -86,10 +96,10 @@ const readMoreActivatedFunc = async () => {
                                     </v-card-text>
                                 </v-card>
                             </v-col>
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
+                                        <v-card-title class="title">
                                             TypeScript / JavaScript
                                         </v-card-title>
                                         <v-card-subtitle>
@@ -102,10 +112,10 @@ const readMoreActivatedFunc = async () => {
                                     </v-card-text>
                                 </v-card>
                             </v-col>
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
+                                        <v-card-title class="title">
                                             Python
                                         </v-card-title>
                                         <v-card-subtitle>
@@ -120,10 +130,10 @@ const readMoreActivatedFunc = async () => {
                             </v-col>
                         </v-row>
                         <v-row justify="center">
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
+                                        <v-card-title class="title">
                                             SQL / MySQL
                                         </v-card-title>
                                         <v-card-subtitle>
@@ -136,11 +146,11 @@ const readMoreActivatedFunc = async () => {
                                     </v-card-text>
                                 </v-card>
                             </v-col>
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
-                                            Premiere Pro / After Effect
+                                        <v-card-title class="title">
+                                            PremierePro / AfterEffect
                                         </v-card-title>
                                         <v-card-subtitle>
                                             4年
@@ -152,10 +162,10 @@ const readMoreActivatedFunc = async () => {
                                     </v-card-text>
                                 </v-card>
                             </v-col>
-                            <v-col cols="auto">
+                            <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title>
+                                        <v-card-title class="title">
                                             Illustrator / Photoshop
                                         </v-card-title>
                                         <v-card-subtitle>
@@ -169,12 +179,11 @@ const readMoreActivatedFunc = async () => {
                                 </v-card>
                             </v-col>
                         </v-row>
-                        <v-btn class="button" v-if="!readMore.Activated"
-                            @click="readMore.Activated = !readMore.Activated;">閉じる</v-btn>
+                        <v-btn class="button" @click="readMoreInactivatedFunc">閉じる</v-btn>
                     </div>
                 </Transition>
             </v-container>
-
+            </div>
         </v-container>
     </v-sheet>
 </template>
@@ -188,8 +197,8 @@ const readMoreActivatedFunc = async () => {
     width: 960px;
 }
 
-.subtitle {
-    text-align: center;
+.title {
+    white-space: normal;
 }
 
 .card {
@@ -205,7 +214,7 @@ const readMoreActivatedFunc = async () => {
 }
 
 .skillMore-enter-active {
-    transition: opacity 1s ease;
+    transition: opacity 0.4s ease;
 }
 
 .skillMore-leave-active {
@@ -213,8 +222,7 @@ const readMoreActivatedFunc = async () => {
 }
 
 .moreButton-enter-active {
-    transition: opacity 1s ease;
-    transition-delay: 0.4s;
+    transition: opacity 0.4s ease;
 }
 
 .moreButton-leave-active {
@@ -236,7 +244,10 @@ const readMoreActivatedFunc = async () => {
 
     .card {
         max-width: 200px;
-        min-height: 330px;
+        min-height: 350px;
+    }
+    .title {
+        font-size: 1rem;
     }
 }
 
@@ -246,7 +257,7 @@ const readMoreActivatedFunc = async () => {
     }
 
     .card {
-        max-width: 80vw;
+        min-width: 80vw;
         min-height: 0px;
     }
 }
