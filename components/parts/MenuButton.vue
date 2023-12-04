@@ -1,10 +1,53 @@
 <script setup lang="ts">
 const active = ref(false)
+
+
+
+const nav_target = ref(null)
+const { apply } = useMotion(nav_target, {
+    initial: {
+        display: 'none',
+        opacity: 0,
+        transition: {
+            display: {
+                delay: 400,
+            },
+            opacity: {
+                duration: 400, type: 'keyframes',
+                ease: 'easeOut',
+            },
+        }
+    },
+    leave: {
+        display: 'block',
+        opacity: 0.8,
+        transition: {
+            duration: 400, type: 'keyframes',
+            ease: 'easeOut',
+        }
+    },
+})
+
+const scrolly = ref(0)
+
+const showScrollallow = async () => {
+    scrolly.value = window.scrollY;
+
+    if (-10 < scrolly.value && scrolly.value < 900) {
+        await apply('initial')
+    } else {
+        await apply('leave')
+    }
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', showScrollallow)
+})
 </script>
 
 <template>
     <nav id="nav">
-        <div class="hamburger" v-on:click='active = !active'>
+        <div ref="nav_target" class="hamburger" v-on:click='active = !active'>
             <span class="line line1" v-bind:class="{ 'v-line1': active }"></span>
             <span class="line line2" v-bind:class="{ 'v-line2': active }"></span>
             <span class="line line3" v-bind:class="{ 'v-line3': active }"></span>
@@ -13,16 +56,20 @@ const active = ref(false)
             <div class="menu" v-if="active">
                 <ul>
                     <li>
-                        <NuxtLink to="#About" class="menu_link" v-on:click="active = !active">About</NuxtLink>
+                        <NuxtLink v-text="$t(`Menu.about`)" style="white-space: pre-wrap;" to="#About" class="menu_link"
+                            v-on:click="active = !active"></NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="#Skills" class="menu_link" v-on:click="active = !active">Skills</NuxtLink>
+                        <NuxtLink v-text="$t(`Menu.skills`)" style="white-space: pre-wrap;" to="#Skills" class="menu_link"
+                            v-on:click="active = !active"></NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="#Works" class="menu_link" v-on:click="active = !active">Works</NuxtLink>
+                        <NuxtLink v-text="$t(`Menu.works`)" style="white-space: pre-wrap;" to="#Works" class="menu_link"
+                            v-on:click="active = !active"></NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="#Contact" class="menu_link" v-on:click="active = !active">Contact</NuxtLink>
+                        <NuxtLink v-text="$t(`Menu.contact`)" style="white-space: pre-wrap;" to="#Contact" class="menu_link"
+                            v-on:click="active = !active"></NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -44,6 +91,7 @@ section {
     height: 70px;
     cursor: pointer;
     z-index: 100;
+    opacity: 0;
 }
 
 .hamburger .line {
@@ -95,7 +143,6 @@ section {
 .menu-leave-to {
     opacity: 0;
 }
-
 
 .menu {
     background-color: rgba(255, 255, 255, 0.9);
