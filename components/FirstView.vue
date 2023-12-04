@@ -7,7 +7,7 @@
                 <span class="copy_txt engineer">Engineer</span>
             </div>
         </h1>
-
+        <PartsScroll class="scroll" />
     </v-container>
 </template>
 
@@ -77,5 +77,15 @@
     .copy_txt.engineer {
         font-size: 3vw;
     }
+}
+
+.scroll {
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    margin: auto;
 }
 </style>
