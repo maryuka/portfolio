@@ -18,7 +18,8 @@ const items = [
     },
 ]
 
-const title_txt = "私について"
+const { t,locale } = useI18n()
+const title_txt = t(`About.title`)
 
 </script>
 
@@ -34,10 +35,8 @@ const title_txt = "私について"
             }">
                 <v-row no-gutters class="profile mt-16" justify="center">
                     <v-col class="txt_box" cols="12" lg="4">
-                        <h1 class="profile_title is_en">Profile</h1>
-                        <p class="txt mt-10">
-                            大学にて情報学を専攻しており、グループ署名を用いた匿名認証について研究しています。在学中に一般社団法人にてWebエンジニアとして自社のWebサイトを制作しました。他にも動画を作ったり写真を撮ったりゲームを作ったり、面白そうなことに色々手を出しています。いつか海外でWEB制作のお仕事をするために英語も勉強中です。
-                        </p>
+                        <h1 v-text="$t(`About.profile.title`)"  style="white-space: pre-wrap;" class="profile_title is_en"></h1>
+                        <p  v-text="$t(`About.profile.text`)"  style="white-space: pre-wrap;" class="txt mt-10"></p>
                     </v-col>
                     <v-spacer></v-spacer>
                     <v-col class="img_box mt-10  d-flex justify-center" cols="12" lg="6">
@@ -53,14 +52,8 @@ const title_txt = "私について"
             }">
                 <v-row no-gutters class="profile is_reverse mt-16" justify="center">
                     <v-col class="txt_box" cols="12" lg="4">
-                        <h1 class="profile_title is_en">Likes</h1>
-                        <p class="txt mt-10">
-                            自然全般が好きです。<br>
-                            〈花〉このサイトのテーマになっているお花はネモフィラです。和名は瑠璃唐草。かわいい。
-                            <span style="font-size: 0.7rem;">※全て自分で撮影・編集した写真です。</span><br>
-                            〈キャンプ〉焚き火が好きで好きで好きすぎて毎日焚き火の音を聞きながら寝てます笑
-                            自然の中で作業したくて、たまにPCを持って近くのキャンプ上に作業しにいったりします。将来は森の近くに住みたいです。
-                        </p>
+                        <h1  v-text="$t(`About.likes.title`)"  style="white-space: pre-wrap;" class="profile_title is_en"></h1>
+                        <p  v-text="$t(`About.likes.text`)" style="white-space: pre-wrap;" class="txt mt-10"></p>
                     </v-col>
                     <v-spacer></v-spacer>
                     <v-col class="img_box mt-10 d-flex justify-center" cols="12" lg="6">

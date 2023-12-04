@@ -1,19 +1,32 @@
+<script setup lang="ts">
+const { locale } = useI18n()
+</script>
+
 <template>
     <div>
         <v-container class="box">
             <v-row no-gutters justify="center">
                 <v-col cols="12" sm="2" class="copy_catch d-flex justify-center">
-                    <div class="vertical">
-                        <p>人と人とを<br></p>
-                        <p class="tsunagu pt-sm-16 mt-sm-16">繋ぐ</p>
+                    <div v-motion :initial="{ opacity: 0 }" :visibleOnce="{
+                    opacity: 1, transition: {
+                        duration: 1000, type: 'keyframes',
+                        ease: 'easeOut', delay: 300,
+                    },}">
+                        <div class="vertical">
+                            <p v-text="$t(`Catch.title1`)" style="white-space: pre-wrap;"></p>
+                            <p v-text="$t(`Catch.title2`)" style="white-space: pre-wrap;" class="tsunagu pt-sm-16 mt-sm-16"></p>
+                        </div>
                     </div>
                 </v-col>
                 <v-col cols="12" sm="7" class="copy_txt d-flex justify-center align-center">
-                    <div class="pl-sm-10">
-                        <p>人から人へ。<br>
-                            より多くの 想いを 気持ちを お届けする。<br>
-                            そんなお手伝いができればと思っております。
-                        </p>
+                    <div v-motion :initial="{ opacity: 0 }" :visibleOnce="{
+                    opacity: 1, transition: {
+                        duration: 1000, type: 'keyframes',
+                        ease: 'easeOut', delay: 300,
+                    },}">
+                        <div class="pl-sm-10">
+                            <p v-text="$t(`Catch.text`)" style="white-space: pre-wrap;"></p>
+                        </div>
                     </div>
                 </v-col>
             </v-row>

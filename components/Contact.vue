@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-const title_txt = "お問い合わせ"
+const { t,locale } = useI18n()
+const title_txt = t(`Contact.title`)
 
 </script>
 
@@ -12,25 +13,26 @@ const title_txt = "お問い合わせ"
                 <form action="https://portfolio-806585.form.newt.so/v1/Cscg-Svnh" method="post">
                     <div class="form_item">
                         <p class="form_item_label">
-                            <span class="form_item_label_required">必須</span><label for="name">氏名</label>
+                            <span v-text="$t(`Contact.required`)" style="white-space: pre-wrap;" class="form_item_label_required"></span>
+                            <label v-text="$t(`Contact.name`)" style="white-space: pre-wrap;" for="name"></label>
                         </p>
                         <input id="name" name="name" class="form_item_input" required>
                     </div>
                     <div class="form_item">
                         <p class="form_item_label">
-                            <span class="form_item_label_required">必須</span><label for="email">メールアドレス</label>
+                            <span v-text="$t(`Contact.required`)" style="white-space: pre-wrap;" class="form_item_label_required"></span>
+                            <label v-text="$t(`Contact.email`)" style="white-space: pre-wrap;" for="email"></label>
                         </p>
                         <input id="email" name="email" type="email" class="form_item_input" required>
                     </div>
                     <div class="form_item">
                         <p class="form_item_label isMsg">
-                            <span class="form_item_label_required">必須</span><label for="message">お問い合わせ内容</label>
+                            <span v-text="$t(`Contact.required`)" style="white-space: pre-wrap;" class="form_item_label_required"></span>
+                            <label v-text="$t(`Contact.content`)" style="white-space: pre-wrap;" for="message"></label>
                         </p>
                         <textarea id="message" name="message" class="form_item_textarea" required></textarea>
                     </div>
-                    <v-btn type="submit" class="form_btn mx-auto d-block mt-3">
-                        送信する
-                    </v-btn>
+                    <v-btn v-text="$t(`Contact.send`)" style="white-space: pre-wrap;" type="submit" class="form_btn mx-auto d-block mt-3"></v-btn>
                 </form>
             </v-sheet>
 
@@ -42,6 +44,9 @@ const title_txt = "お問い合わせ"
 <style  scoped>
 .contact_sheet {
     height: 100%;
+    position: relative;
+    transform: translateZ(0);
+    z-index: 4;
 }
 
 .contact_box {

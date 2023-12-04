@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 const sleep = async (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-const title_txt = "できること";
 const readMore = ref({ Activated: false, Inactivated: true });
 
 const readMoreInactivatedFunc = async () => {
@@ -10,6 +9,9 @@ const readMoreInactivatedFunc = async () => {
     await sleep(400);
     readMore.value.Activated = !readMore.value.Activated;
 }
+
+const { t,locale } = useI18n()
+const title_txt = t(`Skills.title`)
 
 </script>
 
@@ -28,54 +30,34 @@ const readMoreInactivatedFunc = async () => {
                     <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title class="title">
-                                    Wordpress
-                                </v-card-title>
-                                <v-card-subtitle>
-                                    4年
-                                </v-card-subtitle>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.wordpress.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.wordpress.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                             </v-card-item>
-                            <v-card-text>
-                                自社のホームページ(ブログ機能付き)をWordPressのテーマ「Diver」を用いて制作しました。サーバー設置やドメイン取得、GoogleAnalytics連携、プラグインのカスタマイズなども行いました。WordPressでのサイト構築は一通りできます。
-                            </v-card-text>
+                            <v-card-text  v-text="$t(`Skills.item.wordpress.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                         </v-card>
                     </v-col>
                     <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title class="title">
-                                    HTML / CSS
-                                </v-card-title>
-                                <v-card-subtitle>
-                                    3年
-                                </v-card-subtitle>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.html.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.html.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                             </v-card-item>
-                            <v-card-text>
-                                自社のホームページリニューアルや新規サイト制作、このポートフォリオサイトの制作で使用しました。基本的な書き方は理解しています。ただ、保守性や拡張性、再利用性など考えることはたくさんあり、CSS設計は奥が深いなぁと思う今日このごろです。
-                            </v-card-text>
+                            <v-card-text  v-text="$t(`Skills.item.html.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                         </v-card>
                     </v-col>
                     <v-col cols="auto" >
                         <v-card class="mx-auto my-2 card" elevation="3">
                             <v-card-item>
-                                <v-card-title class="title">
-                                    Vue3 / Nuxt3
-                                </v-card-title>
-                                <v-card-subtitle>
-                                    1ヶ月
-                                </v-card-subtitle>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.vue.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.vue.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                             </v-card-item>
-                            <v-card-text>
-                                このポートフォリオサイトを制作時に初めて触れました。コンポーネント指向の書き方にも少し慣れてきました。これから更に知識を深めていきたいです。
-                            </v-card-text>
+                            <v-card-text  v-text="$t(`Skills.item.vue.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                         </v-card>
                     </v-col>
                 </v-row>
                 <Transition name="moreButton">
                     <v-btn class="button" v-if="!readMore.Activated"
-                        @click="readMore.Activated = !readMore.Activated; readMore.Inactivated = !readMore.Inactivated">
-                        もっと見る
-                    </v-btn>
+                        @click="readMore.Activated = !readMore.Activated; readMore.Inactivated = !readMore.Inactivated"><span v-text="$t(`Skills.seemore`)"></span></v-btn>
                 </Transition>
                 <Transition name=" skillMore">
                     <div v-if="!readMore.Inactivated">
@@ -83,49 +65,28 @@ const readMoreInactivatedFunc = async () => {
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            PHP
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            1年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.php.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.php.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        PHPを使ってWordPressで構築した自社ホームページにてメンバー一覧のページを作成しました。WordPressのプラグインを併用しつつ、データベースから登録されているユーザ情報を取り出し、一覧で表示する機能を追加しました。正直よく分からずに作っていたのでいつかきちんと勉強し直したいです。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.php.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            TypeScript / JavaScript
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            半年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.typescript.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.typescript.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        TypeScriptはこのポートフォリオサイトを制作時に初めてしっかり触れました。JavaScriptはリアルタイム通信ゲームを自作したときに少し使ったことがあります。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.typescript.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            Python
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            2年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.python.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.python.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        X(Twitter)のBotをPythonでコーディングして制作しました。Twitter、YouTubeのAPIや、画像処理ライブラリのPillowを使用しました。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.python.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                         </v-row>
@@ -133,53 +94,32 @@ const readMoreInactivatedFunc = async () => {
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            SQL / MySQL
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            2年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.sql.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.sql.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        X(Twitter)のBotでデータを扱う際にMySQLを使用しました。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.sql.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            PremierePro / AfterEffect
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            4年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.premiere.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.premiere.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        子ども向けイベントで使用する動画をいくつか制作しました。最近はYouTubeにあげる切り抜き動画を作っています。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.premiere.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                             <v-col cols="auto" >
                                 <v-card class="mx-auto my-2 card" elevation="3">
                                     <v-card-item>
-                                        <v-card-title class="title">
-                                            Illustrator / Photoshop
-                                        </v-card-title>
-                                        <v-card-subtitle>
-                                            3年
-                                        </v-card-subtitle>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.illustrator.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.illustrator.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
                                     </v-card-item>
-
-                                    <v-card-text>
-                                        ホームページのバナー作成や写真のレタッチで使用しています。
-                                    </v-card-text>
+                                    <v-card-text  v-text="$t(`Skills.item.illustrator.text`)"  style="white-space: pre-wrap;" ></v-card-text>
                                 </v-card>
                             </v-col>
                         </v-row>
-                        <v-btn class="button" @click="readMoreInactivatedFunc">閉じる</v-btn>
+                        <v-btn class="button" @click="readMoreInactivatedFunc"><span v-text="$t(`Skills.close`)"></span></v-btn>
                     </div>
                 </Transition>
             </v-container>
