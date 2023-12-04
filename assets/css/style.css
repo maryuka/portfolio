@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'Noto Serif JP', serif;
+    font-family: 'Noto+Serif+JP', serif;
     font-size: 16px;
     letter-spacing: .05em;
 }
@@ -13,14 +13,30 @@ body {
     color: #2B2A36;
 }
 
+@media screen and (max-width: 960px) {
+.v-timeline-item__opposite {
+    padding-right: 10px !important;
+    width: 60px;
+}
+
+.v-timeline-item__body {
+    padding-left: 10px !important;
+}
+.col {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+}
+
 .title {
     font-size: 1rem;
+    font-family: 'Sawarabi+Mincho', serif;
 }
 
 .is_jp {
-    font-family: 'Noto+Serif+JP';
+    font-family: 'Noto+Serif+JP', serif;
 }
 
 .is_en {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Sawarabi+Mincho', serif;
 }
