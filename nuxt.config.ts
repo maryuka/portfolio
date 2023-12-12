@@ -1,16 +1,16 @@
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/google-fonts', "@nuxt/image"],
+  modules: ['@nuxtjs/google-fonts', "@nuxt/image", '@vueuse/motion/nuxt','@nuxtjs/i18n'],
+  devtools: { enabled: true },
+  css: ['@/assets/main.scss', '@/assets/css/style.css'],
   googleFonts: {
     families: {
-      families: {
-        'Noto+Serif+JP': [400, 500],
-        'EB+Garamond': true,
-      }
+      'Noto+Serif+JP': [400,600],
+      'Sawarabi+Mincho': true,
+      'EB+Garamond': true,
     }
   },
-  devtools: { enabled: true },
   build: {
     transpile: ['vuetify'],
   },
@@ -27,5 +27,7 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
-  css: ['@/assets/main.scss', '@/assets/css/style.css'],
+  i18n: {
+    vueI18n: './i18n.config.ts'
+  },
 })

@@ -1,41 +1,128 @@
-<script setup>
-const dataFrontend = {
-    datasets: [{
-        data: [90, 90, 80, 80, 70, 70, 60]
-    }],
-    labels: ['HTML / CSS',
-        'WordPress',
-        'Premiere / AE',
-        'Photoshop',
-        'TypeScript',
-        'Vue3 / Nuxt3',
-        'Figma'
-    ]
+<script setup lang="ts">
+import { ref } from 'vue'
+const sleep = async (ms: number) => new Promise((res) => setTimeout(res, ms));
+
+const readMore = ref({ Activated: false, Inactivated: true });
+
+const readMoreInactivatedFunc = async () => {
+    readMore.value.Inactivated = !readMore.value.Inactivated;
+    await sleep(400);
+    readMore.value.Activated = !readMore.value.Activated;
 }
-const dataBackend = {
-    datasets: [{
-        data: [90, 90, 80, 80, 80]
-    }],
-    labels: ['SQL / MySQL',
-        'PHP',
-        'Python',
-        'Node.js',
-        'Git / Github',
-    ]
-}
+
+const { t,locale } = useI18n()
+const title_txt = t(`Skills.title`)
+
 </script>
 
 <template>
     <v-sheet class="sheet" id="Skills">
         <v-container class="box py-16 my-16">
-            <h1 class="title">できること</h1>
-            <div class="pt-16">
-                <h1 class="subtitle">Frontend</h1>
-                <PartsChart :canvasId="'chartfront'" :chartData="dataFrontend" />
-            </div>
-            <div class="pt-16">
-                <h1 class="subtitle">Backend</h1>
-                <PartsChart :canvasId="'chartback'" :chartData="dataBackend" />
+            <div v-motion :initial="{ opacity: 0, y: 20, }" :visibleOnce="{
+                opacity: 1, y: 0, transition: {
+                    duration: 1000, type: 'keyframes',
+                    ease: 'easeOut', delay: 400,
+                },
+            }">
+            <PartsTitle :title="title_txt" />
+            <v-container class="px-0">
+                <v-row justify="center">
+                    <v-col cols="auto" >
+                        <v-card class="mx-auto my-2 card" elevation="3">
+                            <v-card-item>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.wordpress.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.wordpress.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                            </v-card-item>
+                            <v-card-text  v-text="$t(`Skills.item.wordpress.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                        </v-card>
+                    </v-col>
+                    <v-col cols="auto" >
+                        <v-card class="mx-auto my-2 card" elevation="3">
+                            <v-card-item>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.html.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.html.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                            </v-card-item>
+                            <v-card-text  v-text="$t(`Skills.item.html.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                        </v-card>
+                    </v-col>
+                    <v-col cols="auto" >
+                        <v-card class="mx-auto my-2 card" elevation="3">
+                            <v-card-item>
+                                <v-card-title class="title"  v-text="$t(`Skills.item.vue.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                <v-card-subtitle  v-text="$t(`Skills.item.vue.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                            </v-card-item>
+                            <v-card-text  v-text="$t(`Skills.item.vue.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                        </v-card>
+                    </v-col>
+                </v-row>
+                <Transition name="moreButton">
+                    <v-btn class="button" v-if="!readMore.Activated"
+                        @click="readMore.Activated = !readMore.Activated; readMore.Inactivated = !readMore.Inactivated"><span v-text="$t(`Skills.seemore`)"></span></v-btn>
+                </Transition>
+                <Transition name=" skillMore">
+                    <div v-if="!readMore.Inactivated">
+                        <v-row justify="center">
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.php.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.php.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.php.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.typescript.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.typescript.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.typescript.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.python.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.python.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.python.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                        <v-row justify="center">
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.sql.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.sql.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.sql.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.premiere.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.premiere.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.premiere.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="auto" >
+                                <v-card class="mx-auto my-2 card" elevation="3">
+                                    <v-card-item>
+                                        <v-card-title class="title"  v-text="$t(`Skills.item.illustrator.title`)"  style="white-space: pre-wrap;" ></v-card-title>
+                                        <v-card-subtitle  v-text="$t(`Skills.item.illustrator.period`)"  style="white-space: pre-wrap;" ></v-card-subtitle >
+                                    </v-card-item>
+                                    <v-card-text  v-text="$t(`Skills.item.illustrator.text`)"  style="white-space: pre-wrap;" ></v-card-text>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                        <v-btn class="button" @click="readMoreInactivatedFunc"><span v-text="$t(`Skills.close`)"></span></v-btn>
+                    </div>
+                </Transition>
+            </v-container>
             </div>
         </v-container>
     </v-sheet>
@@ -50,13 +137,57 @@ const dataBackend = {
     width: 960px;
 }
 
-.subtitle {
-    text-align: center;
+.title {
+    white-space: normal;
+}
+
+.card {
+    max-width: 275px;
+    min-height: 280px;
+}
+
+.button {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+}
+
+.skillMore-enter-active {
+    transition: opacity 0.4s ease;
+}
+
+.skillMore-leave-active {
+    transition: opacity 0.4s ease;
+}
+
+.moreButton-enter-active {
+    transition: opacity 0.4s ease;
+}
+
+.moreButton-leave-active {
+    transition: 0s;
+}
+
+
+.skillMore-enter-from,
+.skillMore-leave-to,
+.moreButton-enter-from,
+.skillMore-leave-to {
+    opacity: 0;
 }
 
 @media screen and (max-width: 1280px) {
     .box {
         width: 700px;
+    }
+
+    .card {
+        max-width: 200px;
+        min-height: 350px;
+    }
+    .title {
+        font-size: 1rem;
     }
 }
 
@@ -65,5 +196,9 @@ const dataBackend = {
         width: 80vw;
     }
 
+    .card {
+        min-width: 80vw;
+        min-height: 0px;
+    }
 }
 </style>
