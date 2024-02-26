@@ -1,10 +1,10 @@
 <template>
-    <FirstView />
-    <Catch />
-    <MiddleBG />
-    <About />
-    <Skills />
-    <Works />
-    <BottomBG />
-    <Contact />
+  <FirstView />
+  <Catch />
+  <MiddleBG />
+  <About />
+  <Works />
+  <Skills />
+  <BottomBG />
+  <!-- <Contact /> -->
 </template>
