@@ -7,7 +7,15 @@ const title_txt = t(`Contact.title`);
     <v-container class="contact_box py-16 my-16 mx-3">
       <PartsTitle :title="title_txt" />
       <v-sheet class="mx-auto pt-16 form">
-        <form
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScjQgQVVXTpTTzf-UbvrkKVPNIfaDOrlukKGA22CyrsUeK-6w/viewform?embedded=true"
+          class="google_form"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          >読み込んでいます…</iframe
+        >
+        <!-- <form
           action="https://portfolio-806585.form.newt.so/v1/ryYQuPtMM"
           method="post"
         >
@@ -78,7 +86,7 @@ const title_txt = t(`Contact.title`);
             type="submit"
             class="form_btn mx-auto d-block mt-3"
           ></v-btn>
-        </form>
+        </form> -->
       </v-sheet>
     </v-container>
   </v-sheet>
@@ -94,6 +102,18 @@ const title_txt = t(`Contact.title`);
 
 .contact_box {
   width: 960px;
+}
+
+.google_form {
+  width: 640px;
+  height: 800px;
+}
+
+@media screen and (max-width: 960px) {
+  .google_form {
+    width: 100%;
+    height: 1000px;
+  }
 }
 
 .form {
