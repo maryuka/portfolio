@@ -44,7 +44,7 @@ const title_txt = t(`About.title`);
           </v-col>
           <v-spacer></v-spacer>
           <v-col class="img_box d-flex justify-center" cols="12" lg="4">
-            <img class="img mx-auto rounded-xl" src="/img/profile.JPG" />
+            <img class="img mx-auto rounded-xl" src="/img/profile.jpg" />
           </v-col>
         </v-row>
       </div>
