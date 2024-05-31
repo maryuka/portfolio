@@ -22,7 +22,7 @@ const title_txt = t(`About.title`);
         }"
       >
         <v-row no-gutters class="profile mt-16" justify="center">
-          <v-col class="txt_box" cols="12" lg="4">
+          <v-col class="txt_box" cols="12" lg="5">
             <h1
               v-text="$t(`About.profile.title`)"
               style="white-space: pre-wrap"
@@ -33,10 +33,18 @@ const title_txt = t(`About.title`);
               style="white-space: pre-wrap"
               class="txt mt-10"
             ></p>
+            <div class="sns_wrap">
+              <a href="https://twitter.com/_yuya_io_">
+                <NuxtImg src="/img/x.png" class="img_x" />
+              </a>
+              <a href="https://github.com/maryuka">
+                <NuxtImg src="/img/github.png" class="img_github" />
+              </a>
+            </div>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col class="img_box mt-10 d-flex justify-center" cols="12" lg="6">
-            <img class="img mx-auto rounded-xl" src="/img/profile.webp" />
+          <v-col class="img_box d-flex justify-center" cols="12" lg="4">
+            <img class="img mx-auto rounded-xl" src="/img/profile.JPG" />
           </v-col>
         </v-row>
       </div>
@@ -99,15 +107,21 @@ const title_txt = t(`About.title`);
   line-height: 2;
 }
 
+.sns_wrap {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
 .img {
-  width: 450px;
-  height: 300px;
+  height: 450px;
+  width: 336px;
 }
 
 .img_frame {
   position: relative;
-  width: 450px;
-  height: 300px;
+  height: 450px;
+  width: 336px;
   margin: 0 auto;
 }
 
@@ -122,6 +136,12 @@ const title_txt = t(`About.title`);
   border-radius: 24px;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.img_x,
+.img_github {
+  width: 30px;
+  height: 30px;
 }
 
 .img_01 {
@@ -215,8 +235,9 @@ const title_txt = t(`About.title`);
   }
 
   .img {
-    width: 700px;
-    height: 466px;
+    margin-top: 50px;
+    width: 500px;
+    height: 668px;
   }
 }
 
@@ -226,8 +247,9 @@ const title_txt = t(`About.title`);
   }
 
   .img {
+    margin-top: 50px;
     width: 80vw;
-    height: 52vw;
+    height: 106vw;
   }
 }
 </style>
