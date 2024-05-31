@@ -6,5 +6,5 @@
   <Works />
   <Skills />
   <BottomBG />
-  <!-- <Contact /> -->
+  <Contact />
 </template>
