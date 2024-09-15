@@ -25,7 +25,7 @@ const dot_color = "#ffffff";
                 class="date"
               ></p>
             </template>
-            <div class="item_wrap">
+            <div>
               <div
                 v-text="$t(`Works.item.bitriver.title`)"
                 style="white-space: pre-wrap"
