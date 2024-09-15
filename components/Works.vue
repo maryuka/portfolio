@@ -17,8 +17,27 @@ const dot_color = "#ffffff";
   <v-sheet class="works_sheet d-flex justify-center" id="Works">
     <v-container class="works_box py-16 my-16 mx-3">
       <PartsTitle :title="title_txt" />
-      <v-sheet class="mx-auto pt-16">
-        <v-timeline align="start" side="end">
+          <v-timeline-item :dot-color="dot_color">
+            <template v-slot:opposite>
+              <p
+                v-text="$t(`Works.item.bitriver.date`)"
+                style="white-space: pre-wrap"
+                class="date"
+              ></p>
+            </template>
+            <div>
+              <div
+                v-text="$t(`Works.item.bitriver.title`)"
+                style="white-space: pre-wrap"
+                class="works_title"
+              ></div>
+              <p
+                v-text="$t(`Works.item.bitriver.text`)"
+                style="white-space: pre-wrap"
+                class="text"
+              ></p>
+            </div>
+          </v-timeline-item>
           <v-timeline-item :dot-color="dot_color">
             <template v-slot:opposite>
               <p
