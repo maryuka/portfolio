@@ -124,7 +124,7 @@ section {
 .hamburger {
   position: fixed;
   top: 26px;
-  left: 0;
+  right: 0;
   width: 70px;
   height: 70px;
   cursor: pointer;
@@ -135,7 +135,7 @@ section {
 .hamburger .line {
   position: absolute;
   top: 0;
-  left: 20px;
+  right: 20px;
   width: 32px;
   height: 2px;
   background: #2b2a36;
