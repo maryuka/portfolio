@@ -19,7 +19,7 @@ export default defineI18nConfig(() => ({
       About: {
         title: `私について`,
         profile: {
-          title: `Profile`,
+          title: `Yuka`,
           text: `WebエンジニアのYukaです。
 JavaScriptなどのプログラミング言語を独学で学び、一般社団法人のコーポレートサイトのリニューアルやゲーム制作などを行いました。
 その後、アルバイトや個人開発でWEBアプリの制作を行いました。2026年4月からはfreee株式会社でプロダクト開発をする予定です。
