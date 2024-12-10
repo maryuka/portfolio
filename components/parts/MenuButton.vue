@@ -40,6 +40,24 @@ const showScrollallow = async () => {
   }
 };
 
+function scroll_control(event: Event) {
+  event.preventDefault();
+}
+
+function toggleScroll() {
+  active.value = !active.value;
+  console.log("MenuButton", active.value); // ここでactiveの値を確認
+  if (active.value) {
+    document.addEventListener("touchmove", scroll_control, { passive: false });
+    document.addEventListener("wheel", scroll_control, { passive: false }); // 修正: mousewheel -> wheel
+    document.body.style.overflow = "hidden"; // スクロールを無効にする
+  } else {
+    document.removeEventListener("touchmove", scroll_control);
+    document.removeEventListener("wheel", scroll_control); // 修正: mousewheel -> wheel
+    document.body.style.overflow = ""; // スクロールを有効に戻す
+  }
+}
+
 onMounted(() => {
   window.addEventListener("scroll", showScrollallow);
 });
@@ -47,7 +65,7 @@ onMounted(() => {
 
 <template>
   <nav id="nav">
-    <div ref="nav_target" class="hamburger" v-on:click="active = !active">
+    <div ref="nav_target" class="hamburger" @click="toggleScroll">
       <span class="line line1" v-bind:class="{ 'v-line1': active }"></span>
       <span class="line line2" v-bind:class="{ 'v-line2': active }"></span>
       <span class="line line3" v-bind:class="{ 'v-line3': active }"></span>
@@ -61,7 +79,7 @@ onMounted(() => {
               style="white-space: pre-wrap"
               to="#About"
               class="menu_link"
-              v-on:click="active = !active"
+              @click="toggleScroll"
             ></NuxtLink>
           </li>
           <li>
@@ -70,7 +88,7 @@ onMounted(() => {
               style="white-space: pre-wrap"
               to="#Works"
               class="menu_link"
-              v-on:click="active = !active"
+              @click="toggleScroll"
             ></NuxtLink>
           </li>
           <li>
@@ -79,7 +97,7 @@ onMounted(() => {
               style="white-space: pre-wrap"
               to="#Skills"
               class="menu_link"
-              v-on:click="active = !active"
+              @click="toggleScroll"
             ></NuxtLink>
           </li>
           <li>
@@ -88,7 +106,7 @@ onMounted(() => {
               style="white-space: pre-wrap"
               to="#Contact"
               class="menu_link"
-              v-on:click="active = !active"
+              @click="toggleScroll"
             ></NuxtLink>
           </li>
         </ul>
