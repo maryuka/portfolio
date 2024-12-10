@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-const text = "SCROLL DOWN・SCROLL DOWN・";
+const text = "SCROLL DOWN SCROLL DOWN ";
 const circled_text = ref("");
 const circle = ref(null);
 const inner = ref(null);
