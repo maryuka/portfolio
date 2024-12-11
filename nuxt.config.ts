@@ -35,4 +35,8 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: "./i18n.config.ts",
   },
+  runtimeConfig: {
+    public: {},
+    blogApiToken: process.env.BLOG_ACCESS_TOKEN,
+  },
 });
