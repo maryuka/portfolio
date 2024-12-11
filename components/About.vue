@@ -34,7 +34,7 @@ const title_txt = t(`About.title`);
               class="txt mt-10"
             ></p>
             <div class="sns_wrap">
-              <a href="https://x.com/maryuka_y">
+              <a href="https://x.com/y_flos09">
                 <NuxtImg src="/img/x.png" class="img_x" />
               </a>
               <a href="https://github.com/maryuka">
