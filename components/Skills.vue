@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import Test from "~/components/Test.vue";
 const sleep = async (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 const readMore = ref({ Activated: false, Inactivated: true });
@@ -32,7 +33,8 @@ const title_txt = t(`Skills.title`);
         }"
       >
         <PartsTitle :title="title_txt" />
-        <v-container class="px-0">
+        <Test />
+        <!-- <v-container class="px-0">
           <v-row justify="center">
             <v-col cols="auto">
               <v-card class="mx-auto my-2 card" elevation="3">
@@ -288,8 +290,8 @@ const title_txt = t(`Skills.title`);
                 ><span v-text="$t(`Skills.close`)"></span
               ></v-btn>
             </div>
-          </Transition>
-        </v-container>
+          </Transition> -->
+        <!-- </v-container> -->
       </div>
     </v-container>
   </v-sheet>
