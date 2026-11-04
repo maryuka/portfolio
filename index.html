@@ -16,12 +16,10 @@
             return null;
           }
         };
-        var color = get("theme-color") === "b" ? "b" : "a";
         var mode = get("theme-mode");
         if (mode !== "light" && mode !== "dark") {
           mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         }
-        document.documentElement.dataset.color = color;
         document.documentElement.dataset.mode = mode;
       })();
     </script>

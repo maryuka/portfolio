@@ -1,17 +1,11 @@
 /*
- * 2色だけで構成するテーマ。
- * <html data-color="a|b" data-mode="light|dark"> で 4 パターンを切り替える。
- * ダークは文字色と背景色を入れ替えたもの。設定は index.html と ThemeSwitcher で行う。
+ * こげ茶と水色の2色だけで構成するテーマ。
+ * <html data-mode="light|dark"> で切り替える (ダークは文字色と背景色を入れ替えたもの)。
+ * 設定は index.html と src/lib/theme.ts で行う (切り替えはメニュー内)。
  */
-:root,
-:root[data-color="a"] {
+:root {
   --dark: #3e1b17;
   --light: #bee1e5;
-}
-
-:root[data-color="b"] {
-  --dark: #0c4de9;
-  --light: #efaf10;
 }
 
 :root,
