@@ -4,7 +4,7 @@ import styles from "./Title.module.css";
 
 export default function Title({ title }: { title: string }) {
   return (
-    <h1 className={`${styles.title} is_en`}>
+    <h1 className={`${styles.title}`}>
       <NemophilaIcon className={styles.icon} />
       <motion.div
         initial={{ opacity: 0, x: -20 }}

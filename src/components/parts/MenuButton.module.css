@@ -25,7 +25,7 @@
   right: 20px;
   width: 32px;
   height: 2px;
-  background: #2b2a36;
+  background: var(--fg);
   transition: 0.4s ease;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .menu {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: color-mix(in srgb, var(--bg) 94%, transparent);
   position: fixed;
   z-index: 10;
   width: 100%;
@@ -80,5 +80,6 @@
 
 .link {
   text-decoration: none;
-  color: #333333;
+  color: var(--fg);
+  font-weight: 700;
 }

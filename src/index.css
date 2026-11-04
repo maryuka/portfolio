@@ -1,3 +1,25 @@
+/*
+ * 2色だけで構成するテーマ。--fg が文字・線・アクセント、--bg が背景。
+ * テーマは <html data-theme="..."> で切り替える (src/theme.ts)。
+ */
+:root,
+:root[data-theme="a"] {
+  --fg: #3e1b17;
+  --bg: #bee1e5;
+}
+
+:root[data-theme="b"] {
+  --fg: #0c4de9;
+  --bg: #efaf10;
+}
+
+:root {
+  --fg-muted: color-mix(in srgb, var(--fg) 65%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 25%, var(--bg));
+  --surface: color-mix(in srgb, var(--fg) 6%, var(--bg));
+  --font: "Hiragino Maru Gothic ProN", "ヒラギノ丸ゴ ProN", "Zen Maru Gothic", sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -10,12 +32,13 @@ html {
 
 body {
   margin: 0;
-  font-family: "Noto Serif JP", serif;
+  font-family: var(--font);
   font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: #2b2a36;
-  background: #fff;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -30,17 +53,16 @@ img {
 }
 
 a {
-  color: #1867c0;
+  color: inherit;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  color: var(--bg);
+  background: var(--fg);
 }
 
 .pre-wrap {
   white-space: pre-wrap;
-}
-
-.is_jp {
-  font-family: "Noto Serif JP", serif;
-}
-
-.is_en {
-  font-family: "Sawarabi Mincho", serif;
 }
