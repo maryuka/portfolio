@@ -9,7 +9,7 @@ export default function Contact() {
       <Title title={ja.Contact.title} />
       <div className={styles.form}>
         <p>
-          私にご用の方は、Xの<a href="http://x.com/maryuka_y">@maryuka_y</a>のDMまでご連絡ください。
+          私にご用の方は、Xの<a href="https://x.com/y_flos09">@y_flos09</a>のDMまでご連絡ください。
         </p>
       </div>
     </Section>

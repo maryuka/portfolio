@@ -10,7 +10,6 @@ type WorkKey = keyof typeof ja.Works.item;
 type Work = {
   key: WorkKey;
   image?: { src: string; alt: string };
-  link?: { href: string; label: string };
 };
 
 const WORKS: Work[] = [
@@ -18,11 +17,6 @@ const WORKS: Work[] = [
   { key: "bitriver" },
   { key: "worldclean", image: { src: img("worksWorldClean.webp"), alt: "清掃管理アプリのスクリーンショット" } },
   { key: "portfolio", image: { src: img("worksPortfolio.webp"), alt: "ポートフォリオサイトのスクリーンショット" } },
-  {
-    key: "xbot",
-    image: { src: img("worksbot.webp"), alt: "制作したbotのスクリーンショット" },
-    link: { href: "https://x.com/2434EN_Notify", label: "@2434EN_Notify" },
-  },
   { key: "game", image: { src: img("worksgame.webp"), alt: "制作したゲームのスクリーンショット" } },
   { key: "iyah" },
 ];
@@ -44,17 +38,12 @@ export default function Works() {
     <Section id="Works" className={styles.sheet}>
       <Title title={ja.Works.title} />
       <ol className={styles.timeline}>
-        {WORKS.map(({ key, image, link }) => {
+        {WORKS.map(({ key, image }) => {
           const item = ja.Works.item[key];
           return (
             <TimelineItem key={key} date={item.date}>
               <div>
                 <span className={`${styles.title} pre-wrap`}>{item.title}</span>
-                {link && (
-                  <a href={link.href} className={styles.link}>
-                    {link.label}
-                  </a>
-                )}
               </div>
               <p className={`${styles.text} pre-wrap`}>{item.text}</p>
               {image && <img className={styles.img} src={image.src} alt={image.alt} />}

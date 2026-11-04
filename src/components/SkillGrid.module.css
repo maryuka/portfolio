@@ -1,22 +1,21 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
   padding: 48px 0;
-}
-
-.col {
-  display: flex;
-  justify-content: center;
-  padding: 12px;
+  list-style: none;
 }
 
 .card {
-  width: 180px;
-  max-width: 100%;
-  padding: 16px 0;
-  text-align: center;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 8px 20px;
   border: 2px solid var(--fg);
+  border-radius: 12px;
+  text-align: center;
   transition: background-color 0.2s;
 }
 
@@ -24,52 +23,29 @@
   background: var(--surface);
 }
 
-.name {
-  font-weight: bold;
-  padding-bottom: 16px;
-}
-
-.divider {
-  border: none;
-  border-top: 2px solid var(--fg);
-  margin: 0 0 16px;
-}
-
-.progress {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-}
-
-.iconWrap {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .icon {
-  object-fit: contain;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
 }
 
-.circle {
-  display: block;
-  transform: rotate(-90deg);
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
-.track {
-  fill: none;
-  stroke: var(--line);
-}
-
-.bar {
-  fill: none;
-  stroke: var(--fg);
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.6s ease;
+.name {
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 @media screen and (max-width: 960px) {
@@ -81,5 +57,6 @@
 @media screen and (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 }

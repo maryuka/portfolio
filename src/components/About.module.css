@@ -35,9 +35,14 @@
   margin-top: 10px;
 }
 
+.sns a {
+  color: var(--fg);
+}
+
 .snsIcon {
-  width: 30px;
-  height: 30px;
+  display: block;
+  width: 26px;
+  height: 26px;
 }
 
 .img {

@@ -1,3 +1,4 @@
+import { siGithub, siX, type SimpleIcon } from "simple-icons";
 import { img } from "@/lib/asset";
 import { ja } from "@/lib/messages";
 import Section from "./parts/Section";
@@ -16,10 +17,10 @@ export default function About() {
             <p className={`${styles.txt} pre-wrap`}>{ja.About.profile.text}</p>
             <div className={styles.sns}>
               <a href="https://x.com/y_flos09" aria-label="X">
-                <img src={img("x.png")} alt="X" className={styles.snsIcon} />
+                <SnsIcon icon={siX} />
               </a>
               <a href="https://github.com/maryuka" aria-label="GitHub">
-                <img src={img("github.png")} alt="GitHub" className={styles.snsIcon} />
+                <SnsIcon icon={siGithub} />
               </a>
             </div>
           </div>
@@ -29,5 +30,13 @@ export default function About() {
         </div>
       </FadeIn>
     </Section>
+  );
+}
+
+function SnsIcon({ icon }: { icon: SimpleIcon }) {
+  return (
+    <svg viewBox="0 0 24 24" className={styles.snsIcon} aria-hidden="true">
+      <path d={icon.path} fill="currentColor" />
+    </svg>
   );
 }
