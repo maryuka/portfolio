@@ -22,7 +22,8 @@
   --distance: calc(var(--size) / 2 - 20px);
   position: absolute;
   inset: 0;
-  color: white;
+  color: var(--fg);
+  font-weight: 700;
   text-align: left;
   transform: rotate(var(--deg)) translateY(calc(var(--distance) * -1));
 }
@@ -31,7 +32,7 @@
   display: block;
   width: 5px;
   height: 5px;
-  background: #ffffff;
+  background: var(--fg);
   border-radius: 4px;
   position: absolute;
   left: calc(50% - 2.5px);

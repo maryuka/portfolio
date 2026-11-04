@@ -12,7 +12,7 @@ export default function About() {
       <FadeIn>
         <div className={styles.profile}>
           <div className={styles.txtBox}>
-            <h1 className={`${styles.profileTitle} is_en pre-wrap`}>{ja.About.profile.title}</h1>
+            <h1 className={`${styles.profileTitle} pre-wrap`}>{ja.About.profile.title}</h1>
             <p className={`${styles.txt} pre-wrap`}>{ja.About.profile.text}</p>
             <div className={styles.sns}>
               <a href="https://x.com/y_flos09" aria-label="X">
