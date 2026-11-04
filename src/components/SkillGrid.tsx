@@ -1,19 +1,20 @@
+import { img } from "@/lib/asset";
 import { useState } from "react";
 import styles from "./SkillGrid.module.css";
 
 type Skill = { name: string; image: string; progress: number };
 
 const SKILLS: Skill[] = [
-  { name: "Photoshop", image: "/img/photoshop.png", progress: 75 },
-  { name: "Illustrator", image: "/img/illustrator.png", progress: 65 },
-  { name: "HTML5", image: "/img/html5.png", progress: 90 },
-  { name: "CSS", image: "/img/css.png", progress: 85 },
-  { name: "Canva", image: "/img/canva.png", progress: 70 },
-  { name: "Word", image: "/img/word.png", progress: 80 },
-  { name: "Figma", image: "/img/figma.png", progress: 60 },
-  { name: "Slack", image: "/img/slack.png", progress: 50 },
-  { name: "Excel", image: "/img/excel.png", progress: 90 },
-  { name: "PowerPoint", image: "/img/powerpoint.png", progress: 85 },
+  { name: "Photoshop", image: img("photoshop.png"), progress: 75 },
+  { name: "Illustrator", image: img("illustrator.png"), progress: 65 },
+  { name: "HTML5", image: img("html5.png"), progress: 90 },
+  { name: "CSS", image: img("css.png"), progress: 85 },
+  { name: "Canva", image: img("canva.png"), progress: 70 },
+  { name: "Word", image: img("word.png"), progress: 80 },
+  { name: "Figma", image: img("figma.png"), progress: 60 },
+  { name: "Slack", image: img("slack.png"), progress: 50 },
+  { name: "Excel", image: img("excel.png"), progress: 90 },
+  { name: "PowerPoint", image: img("powerpoint.png"), progress: 85 },
 ];
 
 const SIZE = 100;
