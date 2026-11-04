@@ -7,7 +7,7 @@ export default function FirstView() {
       <div className={styles.inner}>
         <p className={styles.label}>Portfolio</p>
         <h1 className={styles.name}>Yuka</h1>
-        <p className={styles.role}>Web Engineer</p>
+        <p className={styles.role}>Web Application Engineer</p>
       </div>
       <Scroll className={styles.scroll} />
     </header>

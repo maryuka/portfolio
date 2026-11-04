@@ -14,6 +14,7 @@ type Work = {
 };
 
 const WORKS: Work[] = [
+  { key: "freee" },
   { key: "bitriver" },
   { key: "worldclean", image: { src: img("worksWorldClean.webp"), alt: "清掃管理アプリのスクリーンショット" } },
   { key: "portfolio", image: { src: img("worksPortfolio.webp"), alt: "ポートフォリオサイトのスクリーンショット" } },
