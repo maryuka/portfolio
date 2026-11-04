@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-noto-serif-jp), serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: #2b2a36;
+  background: #fff;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #1867c0;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.is_jp {
+  font-family: var(--font-noto-serif-jp), serif;
+}
+
+.is_en {
+  font-family: var(--font-sawarabi-mincho), serif;
+}

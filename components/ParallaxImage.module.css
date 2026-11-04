@@ -1,0 +1,22 @@
+.parallax {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.img {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  max-width: none;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1280px) {
+  .parallax {
+    height: 30vw;
+  }
+}

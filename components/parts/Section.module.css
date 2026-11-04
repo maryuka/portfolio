@@ -1,0 +1,25 @@
+.sheet {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.box {
+  width: 960px;
+  margin: 64px 12px;
+  padding: 64px 16px;
+}
+
+@media screen and (max-width: 1280px) {
+  .box {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .box {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+  }
+}
