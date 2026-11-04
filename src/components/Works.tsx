@@ -1,3 +1,4 @@
+import { img } from "@/lib/asset";
 import type { ReactNode } from "react";
 import { ja } from "@/lib/messages";
 import Section from "./parts/Section";
@@ -14,14 +15,14 @@ type Work = {
 
 const WORKS: Work[] = [
   { key: "bitriver" },
-  { key: "worldclean", image: { src: "/img/worksWorldClean.webp", alt: "清掃管理アプリのスクリーンショット" } },
-  { key: "portfolio", image: { src: "/img/worksPortfolio.webp", alt: "ポートフォリオサイトのスクリーンショット" } },
+  { key: "worldclean", image: { src: img("worksWorldClean.webp"), alt: "清掃管理アプリのスクリーンショット" } },
+  { key: "portfolio", image: { src: img("worksPortfolio.webp"), alt: "ポートフォリオサイトのスクリーンショット" } },
   {
     key: "xbot",
-    image: { src: "/img/worksbot.webp", alt: "制作したbotのスクリーンショット" },
+    image: { src: img("worksbot.webp"), alt: "制作したbotのスクリーンショット" },
     link: { href: "https://x.com/2434EN_Notify", label: "@2434EN_Notify" },
   },
-  { key: "game", image: { src: "/img/worksgame.webp", alt: "制作したゲームのスクリーンショット" } },
+  { key: "game", image: { src: img("worksgame.webp"), alt: "制作したゲームのスクリーンショット" } },
   { key: "iyah" },
 ];
 

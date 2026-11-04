@@ -4,10 +4,10 @@ import { ja } from "@/lib/messages";
 import styles from "./MenuButton.module.css";
 
 const LINKS = [
-  { href: "/#About", label: ja.Menu.about },
-  { href: "/#Works", label: ja.Menu.works },
-  { href: "/#Skills", label: ja.Menu.skills },
-  { href: "/#Contact", label: ja.Menu.contact },
+  { href: "#About", label: ja.Menu.about },
+  { href: "#Works", label: ja.Menu.works },
+  { href: "#Skills", label: ja.Menu.skills },
+  { href: "#Contact", label: ja.Menu.contact },
 ];
 
 const preventScroll = (e: Event) => e.preventDefault();
