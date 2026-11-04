@@ -1,0 +1,70 @@
+.sheet {
+  background-color: #e5eaf6;
+}
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+
+.txtBox {
+  flex: 0 0 41.6667%;
+}
+
+.imgBox {
+  flex: 0 0 33.3333%;
+  display: flex;
+  justify-content: center;
+}
+
+.profileTitle {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.txt {
+  margin-top: 40px;
+  line-height: 2;
+}
+
+.sns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.snsIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.img {
+  display: block;
+  margin: 0 auto;
+  height: 450px;
+  width: 336px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media screen and (max-width: 1280px) {
+  .txtBox,
+  .imgBox {
+    flex-basis: 100%;
+  }
+
+  .img {
+    margin-top: 50px;
+    width: 500px;
+    height: 668px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .img {
+    width: 80vw;
+    height: 106vw;
+  }
+}

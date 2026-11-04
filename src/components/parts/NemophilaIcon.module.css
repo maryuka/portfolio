@@ -1,0 +1,19 @@
+.icon {
+  display: block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.circle {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #8aa7eb;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,72 @@
+.circle {
+  --size: 180px;
+  position: relative;
+  margin: 20px auto;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.inner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  animation: rotate 10s linear infinite;
+}
+
+.char {
+  /* 円の中心から半径 - 文字高さ だけ外側に配置 */
+  --distance: calc(var(--size) / 2 - 20px);
+  position: absolute;
+  inset: 0;
+  color: white;
+  text-align: left;
+  transform: rotate(var(--deg)) translateY(calc(var(--distance) * -1));
+}
+
+.dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #ffffff;
+  border-radius: 4px;
+  position: absolute;
+  left: calc(50% - 2.5px);
+  top: calc(50% - 2.5px);
+  opacity: 0;
+  animation: drop 1.6s ease-out infinite both;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+  62.5% {
+    transform: translateY(30px);
+  }
+  93.75%,
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .circle {
+    --size: 20vw;
+  }
+
+  .inner {
+    font-size: 1.8vw;
+  }
+}

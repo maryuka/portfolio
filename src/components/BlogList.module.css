@@ -1,0 +1,127 @@
+.chips {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 8px;
+  padding: 12px;
+}
+
+.chip {
+  margin: 8px;
+  padding: 0 12px;
+  height: 32px;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chip.selected {
+  background-color: #8aa7eb;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.image {
+  width: 280px;
+  height: 130px;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/img/blog-img-bg.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.item:hover .image::after {
+  opacity: 0.5;
+}
+
+.imageText {
+  font-size: 20px;
+  user-select: none;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.title {
+  margin-top: 8px;
+  padding-right: 4px;
+}
+
+.body {
+  font-size: 14px;
+  margin-top: 10px;
+  width: 280px;
+  opacity: 0.8;
+}
+
+.date {
+  font-size: 12px;
+  margin-right: 8px;
+  opacity: 0.6;
+}
+
+.tags {
+  font-size: 12px;
+  opacity: 0.6;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+}
+
+.tag {
+  margin: 4px;
+}
+
+@media screen and (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .image,
+  .body {
+    width: 80vw;
+  }
+}
