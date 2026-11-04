@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin: 0;
   padding: 48px 0;
@@ -48,15 +48,35 @@
   font-size: 0.95rem;
 }
 
-@media screen and (max-width: 960px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media screen and (max-width: 600px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
+    padding: 32px 0;
+  }
+
+  .card {
+    gap: 10px;
+    padding: 18px 4px 14px;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mark {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 0.8rem;
+    letter-spacing: 0;
   }
 }
