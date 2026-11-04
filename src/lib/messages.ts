@@ -3,7 +3,7 @@ export const ja = {
   Menu: {
     about: `私について`,
     skills: `できること`,
-    works: `実績`,
+    works: `やってきたこと`,
     contact: `お問い合わせ`,
   },
   Catch: {
@@ -99,7 +99,7 @@ JavaScriptなどのプログラミング言語を独学で学び、一般社団�
     },
   },
   Works: {
-    title: `実績`,
+    title: `やってきたこと`,
     item: {
       freee: {
         title: `freee株式会社`,
