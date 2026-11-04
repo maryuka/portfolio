@@ -2,8 +2,8 @@
 export const ja = {
   Menu: {
     about: `私について`,
-    skills: `できること`,
-    works: `やってきたこと`,
+    skills: `スキル`,
+    works: `実績`,
     contact: `お問い合わせ`,
   },
   Catch: {
@@ -32,7 +32,7 @@ JavaScriptなどのプログラミング言語を独学で学び、一般社団�
     },
   },
   Skills: {
-    title: `できること`,
+    title: `スキル`,
     seemore: `もっと見る`,
     close: `閉じる`,
     item: {
@@ -99,7 +99,7 @@ JavaScriptなどのプログラミング言語を独学で学び、一般社団�
     },
   },
   Works: {
-    title: `やってきたこと`,
+    title: `実績`,
     item: {
       freee: {
         title: `freee株式会社`,
