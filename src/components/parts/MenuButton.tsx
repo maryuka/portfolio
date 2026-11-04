@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ja } from "@/lib/messages";
+import ModeSelect from "./ModeSelect";
 import styles from "./MenuButton.module.css";
 
 const LINKS = [
@@ -73,6 +74,7 @@ export default function MenuButton() {
                 </li>
               ))}
             </ul>
+            <ModeSelect />
           </motion.div>
         )}
       </AnimatePresence>

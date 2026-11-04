@@ -1,7 +1,7 @@
 /*
  * こげ茶と水色の2色だけで構成するテーマ。
  * <html data-mode="light|dark"> で切り替える (ダークは文字色と背景色を入れ替えたもの)。
- * 設定は index.html と ThemeSwitcher で行う。
+ * 設定は index.html と src/lib/theme.ts で行う (切り替えはメニュー内)。
  */
 :root {
   --dark: #3e1b17;
