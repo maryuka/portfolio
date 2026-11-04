@@ -1,14 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
-export type ThemeColor = "a" | "b";
 export type ThemeMode = "light" | "dark";
 
-export const PALETTES: Record<ThemeColor, { dark: string; light: string; label: string }> = {
-  a: { dark: "#3e1b17", light: "#bee1e5", label: "ブラウン × ブルー" },
-  b: { dark: "#0c4de9", light: "#efaf10", label: "ブルー × イエロー" },
-};
+/** こげ茶と水色。ライトは水色の背景にこげ茶の文字、ダークはその逆 */
+export const COLORS = { dark: "#3e1b17", light: "#bee1e5" } as const;
 
-const COLOR_KEY = "theme-color";
 const MODE_KEY = "theme-mode";
 
 const store = {
@@ -31,25 +27,21 @@ const store = {
 const systemMode = (): ThemeMode =>
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
-function apply(color: ThemeColor, mode: ThemeMode) {
-  const root = document.documentElement;
-  root.dataset.color = color;
-  root.dataset.mode = mode;
+function apply(mode: ThemeMode) {
+  document.documentElement.dataset.mode = mode;
   // iOS Safari などのアドレスバーの色も背景色に合わせる
-  const p = PALETTES[color];
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", mode === "light" ? p.light : p.dark);
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute("content", mode === "light" ? COLORS.light : COLORS.dark);
 }
 
-/** 配色 (2色) とライト / ダークを管理する。初期値は index.html のスクリプトが設定したもの */
+/** ライト / ダークを管理する。初期値は index.html のスクリプトが設定したもの */
 export function useTheme() {
-  const [color, setColorState] = useState<ThemeColor>(
-    () => (document.documentElement.dataset.color as ThemeColor) ?? "a",
-  );
   const [mode, setModeState] = useState<ThemeMode>(
     () => (document.documentElement.dataset.mode as ThemeMode) ?? systemMode(),
   );
 
-  useEffect(() => apply(color, mode), [color, mode]);
+  useEffect(() => apply(mode), [mode]);
 
   // 自分で切り替えていない間は、OS のライト / ダーク設定の変更に追従する
   useEffect(() => {
@@ -61,11 +53,6 @@ export function useTheme() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const setColor = useCallback((c: ThemeColor) => {
-    store.set(COLOR_KEY, c);
-    setColorState(c);
-  }, []);
-
   const toggleMode = useCallback(() => {
     setModeState((m) => {
       const next = m === "light" ? "dark" : "light";
@@ -74,5 +61,5 @@ export function useTheme() {
     });
   }, []);
 
-  return { color, mode, setColor, toggleMode };
+  return { mode, toggleMode };
 }

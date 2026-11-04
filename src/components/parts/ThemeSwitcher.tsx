@@ -1,41 +1,15 @@
-import { PALETTES, useTheme, type ThemeColor } from "@/lib/theme";
+import { useTheme } from "@/lib/theme";
 import styles from "./ThemeSwitcher.module.css";
 
-const COLORS = Object.keys(PALETTES) as ThemeColor[];
-
+/** ライト / ダークの切り替えボタン */
 export default function ThemeSwitcher() {
-  const { color, mode, setColor, toggleMode } = useTheme();
+  const { mode, toggleMode } = useTheme();
+  const label = mode === "light" ? "ダークモードにする" : "ライトモードにする";
 
   return (
-    <div className={styles.switcher} role="group" aria-label="配色">
-      {COLORS.map((c) => {
-        const p = PALETTES[c];
-        // 今のモードで見える並び (左上 = 文字色、右下 = 背景色) で表示
-        const [fg, bg] = mode === "light" ? [p.dark, p.light] : [p.light, p.dark];
-        return (
-          <button
-            key={c}
-            type="button"
-            className={`${styles.swatch} ${color === c ? styles.selected : ""}`}
-            style={{ background: `linear-gradient(135deg, ${fg} 50%, ${bg} 50%)` }}
-            aria-label={p.label}
-            aria-pressed={color === c}
-            title={p.label}
-            onClick={() => setColor(c)}
-          />
-        );
-      })}
-      <span className={styles.divider} />
-      <button
-        type="button"
-        className={styles.mode}
-        aria-label={mode === "light" ? "ダークモードにする" : "ライトモードにする"}
-        title={mode === "light" ? "ダークモードにする" : "ライトモードにする"}
-        onClick={toggleMode}
-      >
-        {mode === "light" ? <MoonIcon /> : <SunIcon />}
-      </button>
-    </div>
+    <button type="button" className={styles.switcher} aria-label={label} title={label} onClick={toggleMode}>
+      {mode === "light" ? <MoonIcon /> : <SunIcon />}
+    </button>
   );
 }
 
