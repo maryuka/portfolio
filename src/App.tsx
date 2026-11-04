@@ -6,11 +6,13 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MenuButton from "@/components/parts/MenuButton";
+import ThemeSwitcher from "@/components/parts/ThemeSwitcher";
 
 export default function App() {
   return (
     <>
       <MenuButton />
+      <ThemeSwitcher />
       <main>
         <FirstView />
         <Catch />

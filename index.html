@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yuka -engineer-</title>
     <meta name="description" content="Yuka -engineer-" />
+    <meta name="theme-color" content="#bee1e5" />
+    <script>
+      // 配色の初期設定。描画前に適用して、ちらつきを防ぐ
+      (function () {
+        var get = function (k) {
+          try {
+            return localStorage.getItem(k);
+          } catch (e) {
+            return null;
+          }
+        };
+        var color = get("theme-color") === "b" ? "b" : "a";
+        var mode = get("theme-mode");
+        if (mode !== "light" && mode !== "dark") {
+          mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.color = color;
+        document.documentElement.dataset.mode = mode;
+      })();
+    </script>
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

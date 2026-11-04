@@ -1,16 +1,30 @@
 /*
- * 2色だけで構成するテーマ。--fg が文字・線・アクセント、--bg が背景。
- * テーマは <html data-theme="..."> で切り替える (src/theme.ts)。
+ * 2色だけで構成するテーマ。
+ * <html data-color="a|b" data-mode="light|dark"> で 4 パターンを切り替える。
+ * ダークは文字色と背景色を入れ替えたもの。設定は index.html と ThemeSwitcher で行う。
  */
 :root,
-:root[data-theme="a"] {
-  --fg: #3e1b17;
-  --bg: #bee1e5;
+:root[data-color="a"] {
+  --dark: #3e1b17;
+  --light: #bee1e5;
 }
 
-:root[data-theme="b"] {
-  --fg: #0c4de9;
-  --bg: #efaf10;
+:root[data-color="b"] {
+  --dark: #0c4de9;
+  --light: #efaf10;
+}
+
+:root,
+:root[data-mode="light"] {
+  --fg: var(--dark);
+  --bg: var(--light);
+  color-scheme: light;
+}
+
+:root[data-mode="dark"] {
+  --fg: var(--light);
+  --bg: var(--dark);
+  color-scheme: dark;
 }
 
 :root {
@@ -39,6 +53,7 @@ body {
   color: var(--fg);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1,
